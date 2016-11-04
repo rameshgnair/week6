@@ -51,21 +51,13 @@ var App = React.createClass({
       <div>
         <h1>Welcome to the KIEI-924 Casino!</h1>
         <div className="row">
-          <div className="col-sm-2">
-            <h1><img className="img-responsive" src={"http://golearntocode.com/images/cards/" + cards[0]+ ".png"} /></h1>
-          </div>
-          <div className="col-sm-2">
-            <h1><img className="img-responsive" src={"http://golearntocode.com/images/cards/" + cards[1]+ ".png"} /></h1>
-          </div>
-          <div className="col-sm-2">
-            <h1><img className="img-responsive" src={"http://golearntocode.com/images/cards/" + cards[2]+ ".png"} /></h1>
-          </div>
-          <div className="col-sm-2">
-            <h1><img className="img-responsive" src={"http://golearntocode.com/images/cards/" + cards[3]+ ".png"} /></h1>
-          </div>
-          <div className="col-sm-2">
-            <h1><img className="img-responsive" src={"http://golearntocode.com/images/cards/" + cards[4]+ ".png"} /></h1>
-          </div>
+
+          <Card value={cards[0]}/>
+          <Card value={cards[1]}/>
+          <Card value={cards[2]}/>
+          <Card value={cards[3]}/>
+          <Card value={cards[4]}/>
+
           <div className="col-sm-2">
             <h1><a href="#" onClick={boundClick} className="btn btn-success">Deal</a></h1>
           </div>
@@ -74,9 +66,16 @@ var App = React.createClass({
     )
   }
 })
-var card = React.createClass({
 
 
+var Card = React.createClass({
+  render: function() {
+    return(
+      <div className="col-sm-2">
+        <h1><img className="img-responsive" src={"http://golearntocode.com/images/cards/" + this.props.value+ ".png"} /></h1>
+      </div>
+    )
+  }
 })
 
 ReactDOM.render(<App />, document.getElementById("app"))
