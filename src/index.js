@@ -34,9 +34,18 @@ window.getDeck = function() {
 
 var App = React.createClass({
 
+  getInitialState: function(){
+    return{
+      hand: window.getDeck(),
+    }
+  },
+
+
   deal: function(cards,e){
-    cards.shuffle()
-    this.forceUpdate()
+
+    this.replaceState({
+
+    })
   },
 
 
@@ -44,7 +53,6 @@ var App = React.createClass({
 
     var cards = window.getDeck();
     cards.shuffle()
-    let boundClick = this.deal.bind(this, cards);
 
     return (
 
@@ -59,7 +67,7 @@ var App = React.createClass({
           <Card value={cards[4]}/>
 
           <div className="col-sm-2">
-            <h1><a href="#" onClick={boundClick} className="btn btn-success">Deal</a></h1>
+            <h1><a href="#" onClick={this.deal} className="btn btn-success">Deal</a></h1>
           </div>
         </div>
       </div>
